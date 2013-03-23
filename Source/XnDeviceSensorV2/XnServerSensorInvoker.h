@@ -80,7 +80,6 @@ public:
 	XN_DECLARE_EVENT_1ARG(PropChangeEvent, IPropChangeEvent, const XnProperty*, pProp);
 	IPropChangeEvent& PropChangedEvent() { return m_propChangedEvent; }
 
-private:
 	// Types
 	typedef struct SensorInvokerStream 
 	{
@@ -103,14 +102,14 @@ private:
 			m_hash(other.m_hash),
 			m_locker(other.m_locker)
 		{}
-
+#if 0
 		inline XnLockedServerStreamsHash& operator=(const XnLockedServerStreamsHash& other)
 		{
 			this->m_hash = other.m_hash;
 			this->m_locker = other.m_locker;
 			return *this;
 		}
-
+#endif
 		inline _XnServerStreamsHash::Iterator begin()
 		{
 			return m_hash.begin();
